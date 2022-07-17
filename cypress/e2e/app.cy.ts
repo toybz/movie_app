@@ -1,3 +1,4 @@
+export {}
 describe("app", () => {
   it("redirects to /movies on load", () => {
     cy.visit("http://localhost:3000/");
