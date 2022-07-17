@@ -54,7 +54,7 @@ const HtmlHead: React.FC = () => {
       />
       <link rel="shortcut icon" href="/favicon.ico" />
       <link rel="manifest" href="/manifest.json" />
-      <title>Movie App Task</title>
+      <title>Movie App </title>
     </Head>
   );
 };

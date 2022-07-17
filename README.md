@@ -6,7 +6,7 @@
 <h3 align="center">Movie App</h3>
 
   <p align="center">
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>View Demo »</strong></a>
+    <a href="https://movie-app-toybz.vercel.app/"><strong>View Demo »</strong></a>
  </p>
 
 <!-- TABLE OF CONTENTS -->
