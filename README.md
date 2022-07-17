@@ -63,7 +63,8 @@ yarn dev
 
 ```
 ├── api - contains the helper functions to fetch remote data
-├── components - contains the components 
+├── components - contains the components
+├── cypress - contains the e2e spec file (cypress/e2e/app.cy.ts)
 ├── hooks - contains the hooks 
 ├── pages - contains the page codes, using NextJS structure.The route and page are explained in the Route section.              
 ├── public - contains static assets and service worker config files
