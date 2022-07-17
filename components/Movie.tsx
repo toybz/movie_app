@@ -10,19 +10,21 @@ type MovieProp = { data: MediaItem; movieDetailsPath: Path };
 const Movie: React.FC<MovieProp> = ({ data, movieDetailsPath }) => {
   return (
     <Link href={movieDetailsPath}>
-      <Card
-        hoverable
-        style={{ width: 240 }}
-        cover={
-          <img
-            alt={data.title}
-            src={`https://image.tmdb.org/t/p/w500/${data.poster_path}
+      <a className="movie_item_link">
+        <Card
+          hoverable
+          style={{ width: 240 }}
+          cover={
+            <img
+              alt={data.title}
+              src={`https://image.tmdb.org/t/p/w500/${data.poster_path}
 `}
-          />
-        }
-      >
-        <Meta title={data.title || data.name} description="" />
-      </Card>
+            />
+          }
+        >
+          <Meta title={data.title || data.name} description="" />
+        </Card>
+      </a>
     </Link>
   );
 };

@@ -126,6 +126,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <Alert
                   message="Network is Offline. Now using cached data"
                   type="error"
+                  className={"offline_container"}
                 />
               </div>
             )}

@@ -13,15 +13,17 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
- <li><a href="#about">About</a></li>
+ <li><a href="#about-the-project">About</a></li>
  <li><a href="#built-with">Built with</a></li>
  <li><a href="#getting-started">Getting started</a></li>
     <li><a href="#code-strcuture">Code structure</a></li>
-<li><a href="#code-strcuture">Code Architecture</a></li>
-    <li><a href="#roadmap">Routes</a></li>
-    <li><a href="#offline">Offline and Cache Management</a></li>
-    <li><a href="#license">Design Pattern</a></li>
-    <li><a href="#contact">Misc</a></li>
+<li><a href="#code-architecture">Code Architecture</a></li>
+    <li><a href="#routes">Routes</a></li>
+    <li><a href="#offline-feature">Offline and Cache Management</a></li>
+    <li><a href="#notes-on-design-decisions">Design Decisions</a></li>
+    <li><a href="#testing">Testing</a></li>
+<li><a href="#other-things-that-I-didn't-work-on-but-took-notes of">Notes</a></li>
+
   </ol>
 </details>
 
@@ -43,7 +45,6 @@ A web app that displays all the trending Movies and Series using the [TMDB](http
 
 
 
-<!-- GETTING STARTED -->
 ## Getting Started
 
 To run the code locally. Please clone the repo then install the dependencies using
@@ -119,12 +120,16 @@ Using this approach, the app will be responsive when device is offline.
 
 ### Notes on Design Decisions
 
-* I didn't use a global store because most the pages do not share data between each other, because of the small scale of the app. In a large scale application that has lots of shared state, I would have used a global state management lib like Redux.
+* I didn't use a global store because most the pages do not share data between each other and  because of the small scale of the app. In a large scale application that has lots of shared state, I would have used a global state management library like Redux Toolkit.
 
 * To manage the SSR rendered pages returns  serverErrorOccurred and 
   serverErrorMessage prop when a fetch error occurs on the server, so we can show a custom error message on the client.
 
 * I pushed the .env file to the remote repo, so you dont have to recreate it when testing locally. In an ideal real app scenario I wouldn't have pushed it to the remote repo.
+
+### Testing
+I used cypress to perform basics e2e test on the app.
+The spec is located at cypress/e2e/app.cy.ts
 
 #### Other things that I didn't work on but took notes of:
   * Pagination
