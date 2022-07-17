@@ -116,17 +116,17 @@ The app has a useOfflineStatus hook that listens to offline status of the device
 
 ### Service Worker
 The App uses service worker to cache the static assets and fetched routes. Once a resource is  cached the service worker returns the cached data even if there is no network. 
-It paths that have not been cached, it will default to the pages/_offline.tsx file.
+If path is not cached, it will default to the pages/_offline.tsx file.
 Using this approach, the app will be responsive when device is offline.
 
 ### Notes on Design Decisions
 
 * I didn't use a global store because most the pages do not share data between each other and  because of the small scale of the app. In a large scale application that has lots of shared state, I would have used a global state management library like Redux Toolkit.
 
-* To manage the SSR rendered pages returns  serverErrorOccurred and 
-  serverErrorMessage prop when a fetch error occurs on the server, so we can show a custom error message on the client.
+* To manage errors that originate from the server, the getServerSideProps returns  "serverErrorOccurred" and 
+  "serverErrorMessage" prop if an error occur when fetching a resource. 
 
-* I pushed the .env file to the remote repo, so you dont have to recreate it when testing locally. In an ideal real app scenario I wouldn't have pushed it to the remote repo.
+* I pushed the .env file to the remote repo, so you dont have to recreate it when testing locally. In an ideal real app scenario I wouldn't have pushed it to the remote repo.(The env data will be set in the CI/CD server)
 
 ### Testing
 I used cypress to perform basics e2e test on the app.

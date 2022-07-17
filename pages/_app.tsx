@@ -17,12 +17,8 @@ const { Header, Content, Sider } = Layout;
 function MyApp({ Component, pageProps }: AppProps) {
   const { mediaType, mediaParam, navigate, currentPath } = useRouteHelper();
 
-  //alert user if network is offline
   const { isOffline } = useOfflineStatus();
-  useEffect(() => {
-    if (isOffline) {
-    }
-  }, [isOffline]);
+
 
   //GENRE
   //state to store genre, so its fetched only once
@@ -32,8 +28,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
   useEffect(() => {
     const fetchGenre = async () => {
+
       // @ts-ignore
       if (genres[mediaType].length) {
+        // return if genre is fetched
         return;
       }
       try {
@@ -57,6 +55,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     fetchGenre();
   }, [mediaType, genres]);
 
+  // set appropriate genreList based on the media type
   const genreList = mediaType === "tv" ? genres.tv : genres.movie;
   // GENRE end
 
@@ -71,6 +70,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <HtmlHead />
       <Layout>
+          {/*SideMenu with the genre list*/}
         <Sider width={200} className="site-layout-background">
           <Header>
             <span style={{ color: "white" }}>MOVIE APP</span>
@@ -79,6 +79,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Sider>
 
         <Layout>
+          {/*Top Navigation bar*/}
           <Header className="header">
             <Row align="middle">
               <Col span={6}>
@@ -111,6 +112,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               padding: "0 24px 24px",
             }}
           >
+            {/*App navigation*/}
             <Content
               className="site-layout-background"
               style={{
@@ -121,6 +123,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             >
               <Component {...pageProps} />
             </Content>
+            {/*Offline alert*/}
             {isOffline && (
               <div style={{ position: "fixed", bottom: 0, right: 0 }}>
                 <Alert
