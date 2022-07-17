@@ -2,7 +2,6 @@ import { Card } from "antd";
 import React from "react";
 import { MediaItem, Path } from "../types";
 import Link from "next/link";
-import useRouteHelper from "../hooks/useRouteHelper";
 
 const { Meta } = Card;
 

@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { MediaParamType, MediaType, Path } from "../types";
-import { useMemo } from "react";
 
 export default function useRouteHelper() {
   const router = useRouter();

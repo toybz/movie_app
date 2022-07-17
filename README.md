@@ -27,15 +27,13 @@
 
 
 
-<!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 A web app that displays all the trending Movies and Series using the [TMDB](https://developers.themoviedb.org/) API. Users can  select series and movies based on their preferred genre as well as get extra details about the specific series or movie by selecting it.  Users can search for movies and series. Users can search by the movie name or series name and they will get to see all the results related to that particular name.
 
-]]
-### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+### Built With
 
 * NextJS 
 * React 
@@ -48,7 +46,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To run the code locally. After cloning the repo. Please install the dependencies using
+To run the code locally. Please clone the repo then install the dependencies using
 
 ```bash
 yarn
@@ -68,23 +66,26 @@ yarn dev
 ├── hooks - contains the hooks 
 ├── pages - contains the page codes, using NextJS structure.The route and page are explained in the Route section.              
 ├── public - contains static assets and service worker config files
-├── styles
-├── types - contain the typescript types
+├── types - contains the typescript types
 ├── utils - contains helper functions
-├── .env - to store environment variables
+├── .env - contains the environment variables
 ```
 
 
-├── offline.tsx - The page rendered when there is no network and cached data for a page using the Next-pwa lib
-
-
 ### Code Architecture
-** code architectur screesnhot
+The app basically consist of 3 sections as set in the _app.tsx file.
+The top nav menu, the sidebar with the genre list and the main content of the page (controlled by the router) 
 
-Route -  Page file  - Dey
+Please see the images below for a visual representation.
+<div align="center">
+ <img src="screenshots/page_sketch.png" alt="page_sketch">
 
-/ redirects to /movies
-/movies 
+   <img src="screenshots/component_composition.png" alt="code_architecture">
+  
+</div>
+
+
+### Routes
 
 | Route                          | Page File                             | Description                           |
 |:-------------------------------|:--------------------------------------|:--------------------------------------|
@@ -112,24 +113,23 @@ This approach is efficient over having a separate folder structure for /movies a
 The app has a useOfflineStatus hook that listens to offline status of the device. If the device is offline, the No Internet Alert will be displayed. The alert is at the bottom of the pages/_app.tsx file
 
 ### Service Worker
-The App uses service worker to cache the static assets and fetched routes. Once a resource is a cached the service worker returns the cached data even if there is no network. 
+The App uses service worker to cache the static assets and fetched routes. Once a resource is  cached the service worker returns the cached data even if there is no network. 
 It paths that have not been cached, it will default to the pages/_offline.tsx file.
 Using this approach, the app will be responsive when device is offline.
 
-## Notes on Design Decisions
+### Notes on Design Decisions
 
-* I didn't use a global store because most the pages do not share data between each other, because of the small scale of the app, prop drilling between a page and its sub-component. In a large scale application that has lots of shared state, I would have used a global state management like Redux.
+* I didn't use a global store because most the pages do not share data between each other, because of the small scale of the app. In a large scale application that has lots of shared state, I would have used a global state management lib like Redux.
 
-* The SSR rendered pages returns  serverErrorOccurred and 
-  serverErrorMessage prop when a fetch error occurs, so we can show a custom error message.
+* To manage the SSR rendered pages returns  serverErrorOccurred and 
+  serverErrorMessage prop when a fetch error occurs on the server, so we can show a custom error message on the client.
 
-* To manage failures/errors.
-1- The SSR rendered pages returns  serverErrorOccurred and
-  serverErrorMessage prop when a fetch error occurs, so we can show a custom error message.
-2- The 
-* I pushed the .env file to the remote repo, so you dont have to recreate it if testing locally. In an ideal real app scenerio, I wouldnt have pushed it to the remote repo.
-* Other things that I didn't work on but took notes of:
--Pagination
-* Core web vitals metric like: 
-* Mobile responsiveness
-* Styling and alignments 
+* I pushed the .env file to the remote repo, so you dont have to recreate it when testing locally. In an ideal real app scenario I wouldn't have pushed it to the remote repo.
+
+#### Other things that I didn't work on but took notes of:
+  * Pagination
+  * The Cumulative Layout Shift on initial load
+  * Mobile responsiveness
+  * Styling and alignments
+
+ 

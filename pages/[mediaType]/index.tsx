@@ -1,10 +1,10 @@
 import type { GetServerSideProps, NextPage } from "next";
 import MoviesList from "../../components/MoviesList";
-import { Col, Divider, PageHeader, Result, Row } from "antd";
+import { Col, Divider, PageHeader, Row } from "antd";
 import Page from "../../components/Page";
 import React from "react";
 import { fetchTrending } from "../../api";
-import { MediaItem, MediaParamType, MediaType } from "../../types";
+import { MediaItem } from "../../types";
 import { getMediaType } from "../../utils/server";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
