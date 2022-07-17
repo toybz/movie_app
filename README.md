@@ -136,5 +136,6 @@ The spec is located at cypress/e2e/app.cy.ts
   * The Cumulative Layout Shift on initial load
   * Mobile responsiveness
   * Styling and alignments
+  * A loader when an operation (e.g request) is processing
 
  
