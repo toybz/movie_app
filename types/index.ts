@@ -4,8 +4,6 @@ export type Path = `/${string}`;
 export type Genre = {
   id: string;
   name: string;
-  isLinkActive: boolean;
-  path: Path;
 };
 export type MediaItem = {
   adult: boolean;

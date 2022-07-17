@@ -50,7 +50,7 @@ const MovieDetailsPage: NextPage<PageProps> = ({
       serverErrorMessage={serverErrorMessage}
     >
       <Row style={{ marginTop: "2vh" }}>
-        <Col span={8}>
+        <Col md={8}>
           <Card
             style={{ width: "100%", background: "transparent" }}
             cover={
@@ -63,7 +63,7 @@ const MovieDetailsPage: NextPage<PageProps> = ({
           />
         </Col>
 
-        <Col span={12} offset={2}>
+        <Col md={12} md-offset={2}>
           <Card>
             <>
               <h2>{movieDetails?.title || movieDetails.name}</h2>

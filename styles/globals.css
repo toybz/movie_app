@@ -1,0 +1,11 @@
+.ant-layout-sider-zero-width-trigger {
+    position: absolute;
+    top: 10px !important;
+}
+@media only screen and (max-width: 600px) {
+    #search {
+        position: absolute !important;
+        right: 0 !important;
+        width: 50% !important;
+    }
+}

@@ -12,7 +12,7 @@ const MovieList: React.FC<MovieListProp> = ({ movies }) => {
   return (
     <Row gutter={16}>
       {movies.map((movie) => (
-        <Col span={8} key={movie.id} style={{ marginBottom: "3vh" }}>
+        <Col  key={movie.id} style={{ marginBottom: "3vh" }}>
           <Movie data={movie} movieDetailsPath={`${mediaParam}/${movie.id}`} />
         </Col>
       ))}
